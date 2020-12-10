@@ -58,7 +58,7 @@ Unlike POS algorithm, users participating to the consensus are not getting wealt
 
 7. A Tx points to other Txs (stage n=1), which points to other Txs (stage n=2), which points to other Txs (stage n=3),etc...between 2 stages the approval weight must be multiplied by α or more. The goal of this rule is to force any new Tx to approve the whole width of the DAG with as few stages as possible. Why α ? Because, considering a DAG composed only of the smallest Txs possible, at each stage, we can't make the approval weight growing faster.
 
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/1_Overall_view.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/1_Overall_view.svg)
 
 > The purple Tx became spendable thanks to the last Tx on the top of the red triangle (not represented). According to the rule 4, the purple Tx can be spent if it points to this approving Tx or 'above'. Thanks to this rule, all users can well check that this Tx was really spendable when it was spent.
 
@@ -67,7 +67,7 @@ Unlike POS algorithm, users participating to the consensus are not getting wealt
 - One (or more) token has been double spent in two different Txs
 - Two Txs are pointing directly to at least one common slot
   
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/2_Conflicts.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/2_Conflicts.svg)
   	
 > Synchronization conflict : The yellow and the red Txs are directly pointing to the two same slots. These two Txs are in conflict. At time T1, some users added 3 Txs. Only the green Tx has been attached to the DAG avoiding choosing if the red or the yellow Tx is legit. Because of rule 7, it will soon not be possible to avoid choosing : Two fully distinct branches are appearing.
   
@@ -89,7 +89,7 @@ Unlike POS algorithm, users participating to the consensus are not getting wealt
 
 ## C. Delaying the consensus
 
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/3_Attack.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/3_Attack.svg)
 
 At time T0, the orange branch has reached enough weight : The rule 3 is fullfilled and one of the 2 conflicting Txs can be spent. This Tx will be spent at the top of the orange branch (according to rule 4). The honnest users are so spending in the orange branch.  
 
@@ -117,7 +117,7 @@ After a defined period P, without any new Tx attached to the DAG, honnest users 
 
 Two reasons (that can be combined), can explain why the DAG could get frozen.  
 
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/4_Attack_2.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/4_Attack_2.svg)
 
 > Reason 1 : Either because of too many conflicts; no one branch reached the critical approval weight : 50% of M.
 
@@ -137,7 +137,7 @@ Because of these 2 rules :
 - The rule 4, says that to be spent a Tx T must point (directly or indirectly) to at least one Tx giving to T an approval weight above 50% of M.
 - The rule 11, says that a Tx double spending a token can not point directly or indirectly to the 'first spend' Tx spending this token.
 
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/5_Attack_3.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/5_Attack_3.svg)
 
 > The circles represent the Txs of a user who is spending his tokens to himself, as soon as he can spend again. Only the purple Tx could be attached to the attacking branch.
 
@@ -151,4 +151,4 @@ It's not worldwide scalable as it's likely not possible to build a second layer 
 
 The SHA256 of the PDF of this repository will be time-stamped in Bitcoin blockchain.
 
-![](https://raw.githubusercontent.com/222247/saphari-algorithm/main/1_Diagrams/6_cc_by_sa.svg)
+![](https://raw.githubusercontent.com/222247/saphari-algorithm/master/1_Diagrams/6_cc_by_sa.svg)
